@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Learners — Elite Platform</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #0f172a; }
+
+        /* Cinematic Intro Animation Overlay */
+        #splash-screen {
+            position: fixed;
+            inset: 0;
+            background: #020617;
+            color: #ffffff;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            animation: fadeOutSplash 1s ease 4.5s forwards;
+        }
+
+        .splash-text {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.5s; }
+        .delay-2 { animation-delay: 1.8s; }
+        .delay-3 { animation-delay: 3.1s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOutSplash {
+            to {
+                opacity: 0;
+                visibility: hidden;
+            }
+        }
+
+        /* Coursera & W3Schools Hybrid Theme Styles */
+        .coursera-card {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            transition: all 0.25s ease;
+        }
+        .coursera-card:hover {
+            border-color: #0056D2;
+            box-shadow: 0 10px 25px rgba(0, 86, 210, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .w3-box {
+            background: #f1f5f9;
+            border-left: 4px solid #0056D2;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-blue-600 selection:text-white">
+
+    <!-- CINEMATIC INTRO SCREEN -->
+    <div id="splash-screen">
+        <div class="max-w-2xl space-y-6">
+            <div class="splash-text delay-1 text-blue-400 font-mono text-sm tracking-widest uppercase">
+                // System Booting...
+            </div>
+            <h1 class="splash-text delay-2 text-3xl sm:text-5xl font-extrabold tracking-tight">
+                Welcome to <span class="text-blue-500">Code Learners</span>
+            </h1>
+            <p class="splash-text delay-3 text-slate-400 text-base sm:text-lg leading-relaxed">
+                This elite platform was built specifically for <strong class="text-white">CodeCrafters</strong> to solve the modern online learning challenge, bridge the gap between students and high-end tech execution, and empower professional growth.
+            </p>
+        </div>
+    </div>
+
+    <!-- Coursera Style Header -->
+    <header class="border-b border-slate-200 sticky top-0 z-50 bg-white shadow-xs">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-8">
+                <span class="text-2xl font-extrabold tracking-tight text-blue-700 cursor-pointer" onclick="switchPage('home')">
+                    CODE<span class="text-slate-900">LEARNERS</span>
+                </span>
+                <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-600">
+                    <button onclick="switchPage('home')" class="hover:text-blue-600 transition text-blue-600">Explore</button>
+                    <button onclick="switchPage('curriculum')" class="hover:text-blue-600 transition">Curriculum</button>
+                    <button onclick="switchPage('ide')" class="hover:text-blue-600 transition">Live IDE</button>
+                    <button onclick="switchPage('proposals')" class="hover:text-blue-600 transition">Client Contract</button>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button onclick="switchPage('proposals')" class="px-5 py-2.5 rounded-lg bg-[#0056D2] hover:bg-[#0041a8] text-white font-bold text-sm transition shadow-md">
+                    Claim $3,100 Project
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Container -->
+    <main class="flex-grow max-w-7xl mx-auto px-6 py-12 w-full">
+
+        <!-- PAGE 1: HOME (W3Schools + Coursera Hybrid Look) -->
+        <div id="page-home" class="page-section space-y-12">
+            <!-- Hero Section -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="px-3 py-1 bg-blue-50 text-blue-700 text-xs font-bold rounded-full border border-blue-200">
+                        Designed for CodeCrafters Client Requirements
+                    </span>
+                    <h1 class="text-4xl sm:text-6xl font-black text-slate-900 tracking-tight leading-none">
+                        Build Masterpieces. <br><span class="text-blue-600">Command High Budgets.</span>
+                    </h1>
+                    <p class="text-slate-600 text-lg leading-relaxed">
+                        An enterprise-grade online learning ecosystem built with clean interactive architecture, responsive layouts, and precision engineering.
+                    </p>
+                    <div class="flex space-x-4">
+                        <button onclick="switchPage('curriculum')" class="px-7 py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-lg shadow-md transition">
+                            Start Learning
+                        </button>
+                        <button onclick="switchPage('ide')" class="px-7 py-3.5 bg-white hover:bg-slate-50 text-slate-900 border border-slate-300 font-bold rounded-lg transition">
+                            Try Live IDE
+                        </button>
+                    </div>
+                </div>
+                <div class="w3-box p-8 rounded-xl shadow-sm space-y-4">
+                    <h3 class="text-lg font-bold text-slate-900 flex items-center">
+                        <i class="fa-solid fa-code text-blue-600 mr-2"></i> Why Code Learners Was Built?
+                    </h3>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        To fulfill the exact vision of CodeCrafters by providing students with an ultra-responsive interface, zero lag, built-in practice environments, and structured learning tracks that guarantee professional success.
+                    </p>
+                    <div class="pt-4 border-t border-slate-200 flex justify-between text-xs text-slate-500 font-semibold">
+                        <span>Status: Fully Operational</span>
+                        <span>Budget Tier: $3,100</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The 3 Core Pillars (Answering your question about the 3 boxes) -->
+            <div class="space-y-6 pt-8">
+                <h2 class="text-2xl font-bold text-slate-900">Core Platform Architecture</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="coursera-card p-6 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-100 text-blue-600 flex items-center justify-center font-bold">01</div>
+                        <h4 class="font-bold text-lg text-slate-900">Interactive Learning Tracks</h4>
+                        <p class="text-sm text-slate-600">Step-by-step modular lessons with real-time progress tracking and instant code evaluation for students.</p>
+                    </div>
+                    <div class="coursera-card p-6 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center font-bold">02</div>
+                        <h4 class="font-bold text-lg text-slate-900">AI-Powered Doubt Solver</h4>
+                        <p class="text-sm text-slate-600">Built-in smart assistant providing instant clarifications on complex frontend problems and UI layouts.</p>
+                    </div>
+                    <div class="coursera-card p-6 space-y-3">
+                        <div class="w-10 h-10 rounded-lg bg-purple-100 text-purple-600 flex items-center justify-center font-bold">03</div>
+                        <h4 class="font-bold text-lg text-slate-900">Client Contract Ready</h4>
+                        <p class="text-sm text-slate-600">Fully structured to match the $1,500–$3,000 project specifications requested by CodeCrafters.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 2: CURRICULUM -->
+        <div id="page-curriculum" class="page-section space-y-8 hidden">
+            <h1 class="text-3xl font-extrabold text-slate-900">Frontend Engineering Curriculum</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="coursera-card p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase">Module 1</span>
+                        <h3 class="font-bold text-lg text-slate-900 mt-1">Advanced Responsive Tailwind Layouts</h3>
+                        <p class="text-sm text-slate-500 mt-1">Duration: 2 Weeks • 12 Lessons</p>
+                    </div>
+                    <button onclick="alert('Enrolled in Module 1 successfully!')" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg">Start</button>
+                </div>
+                <div class="coursera-card p-6 flex justify-between items-center">
+                    <div>
+                        <span class="text-xs font-bold text-blue-600 uppercase">Module 2</span>
+                        <h3 class="font-bold text-lg text-slate-900 mt-1">JavaScript State Management & Micro-UI</h3>
+                        <p class="text-sm text-slate-500 mt-1">Duration: 3 Weeks • 15 Lessons</p>
+                    </div>
+                    <button onclick="alert('Enrolled in Module 2 successfully!')" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-lg">Start</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAGE 3: LIVE IDE -->
+        <div id="page-ide" class="page-section space-y-6 hidden">
+            <h1 class="text-3xl font-extrabold text-slate-900">In-Browser Code Playground</h1>
+            <div class="coursera-card p-6 space-y-4 bg-slate-900 text-white font-mono">
+                <div class="flex justify-between items-center pb-4 border-b border-slate-800 text-xs text-slate-400">
+                    <span>main.js — Code Learners Environment</span>
+                    <span class="text-emerald-400">● Live Preview Active</span>
+                </div>
+                <pre class="text-sm text-blue-300 overflow-x-auto p-2">
+// Code Learners Platform Engine
+function evaluateProject() {
+    const client = "CodeCrafters";
+    const budget = "$3,100";
+    console.log(`Ready to deliver top-tier frontend for ${client} with budget ${budget}`);
+}
+evaluateProject();</pre>
+                <button onclick="alert('Code executed successfully! All tests passed.')" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm rounded-lg">Run Code</button>
+            </div>
+        </div>
+
+        <!-- PAGE 4: CLIENT CONTRACT -->
+        <div id="page-proposals" class="page-section space-y-6 hidden max-w-2xl mx-auto">
+            <h1 class="text-3xl font-extrabold text-slate-900">Submit Proposal to CodeCrafters</h1>
+            <div class="coursera-card p-8 space-y-4">
+                <div>
+                    <label class="block text-sm font-bold mb-1 text-slate-700">Your Professional Name</label>
+                    <input type="text" id="dev-name" value="Elite Frontend Developer" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:border-blue-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-1 text-slate-700">Target Budget Quotation</label>
+                    <input type="text" value="$3,100 (Full Platform Delivery)" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:border-blue-600 outline-none">
+                </div>
+                <div>
+                    <label class="block text-sm font-bold mb-1 text-slate-700">Portfolio Link</label>
+                    <input type="text" value="https://rummaina.github.io/Rummaina-Drop/" class="w-full p-3 rounded-lg border border-slate-300 text-sm focus:border-blue-600 outline-none">
+                </div>
+                <button onclick="alert('Proposal submitted successfully! CodeCrafters will review your application.')" class="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md">Send Proposal Now</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white py-8 text-center text-xs text-slate-500 font-semibold">
+        <p>&copy; 2026 Code Learners. Built with professional precision for CodeCrafters.</p>
+    </footer>
+
+    <!-- JavaScript Navigation & Interaction -->
+    <script>
+        function switchPage(pageId) {
+            document.querySelectorAll('.page-section').forEach(el => el.classList.add('hidden'));
+            document.getElementById('page-' + pageId).classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+
+</body>
+</html>
